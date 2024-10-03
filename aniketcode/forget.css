@@ -1,0 +1,95 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #6fb1fc, #4364f7);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    width: 300px;
+    text-align: center;
+    transform: translateY(-50px);
+    opacity: 0;
+    animation: fadeInUp 0.5s forwards;
+}
+
+h1 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+p {
+    margin-bottom: 20px;
+    color: #555;
+}
+
+input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input[type="email"]:focus {
+    border-color: #4364f7;
+    box-shadow: 0 0 5px rgba(67, 100, 247, 0.5);
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    background: #4364f7;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+}
+
+button:hover {
+    background: #365bbf;
+    transform: translateY(-2px);
+}
+
+.back-to-login {
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+.back-to-login a {
+    color: #4364f7;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.back-to-login a:hover {
+    text-decoration: underline;
+    color: #365bbf;
+}
+
+/* Animation for the container */
+@keyframes fadeInUp {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
