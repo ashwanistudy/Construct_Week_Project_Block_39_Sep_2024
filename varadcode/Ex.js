@@ -74,19 +74,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const params = new URLSearchParams(window.location.search);
     document.querySelector('.left-section1 h1').textContent = params.get('title');
-    document.querySelector('.left-section1 p:nth-child(2)').textContent = `By ${params.get('name')}`;
+    document.querySelector('.left-section1 p:nth-child(2)').textContent = `By ${params.get('owner')}`;
     document.querySelector('.left-section1 p:nth-child(3)').textContent = `~ ${params.get('min')} minutes`;
     document.querySelector('.left-section1 .category').textContent = params.get('category');
     document.querySelector('.left-section1 .location').innerHTML = `<i class="fa-solid fa-location-dot"></i> ${params.get('location')}`;
     document.querySelector('.left-section1 .description').textContent = params.get('description');
-    document.querySelector('.left-section1 .bn').textContent = params.get('button');
+    
+    document.querySelector('.left-section1 .bn1').textContent = params.get('benefits');
 
     document.querySelector('.right-section1 img').src = params.get('image');
     document.querySelector('.right-section1 img').alt = params.get('title');
 
     document.querySelector('.Aname h3').textContent = `$ ${params.get('owner')}`;
-    document.querySelector('.Aname p').textContent = `$ ${params.get('name')}`;
+    document.querySelector('.Aname p').textContent = `$ ${params.get('benefits')}`;
 
+    document.querySelector('.content-section h3').textContent = `$ ${params.get('category')}`;
+    document.querySelector('.content-section p').textContent = `$ ${params.get('category')}`;
     const price = parseFloat(params.get('price'));
     const taxRate = 0.02;
     const taxAmount = price * taxRate;
@@ -149,18 +152,16 @@ document.addEventListener('DOMContentLoaded', () => {
         if (cardNumber && expiryDate && cvv) {
             
             const bookingDetails = {
-                id: params.get('id'), 
-                title: params.get('title'), 
-                owner: params.get('owner'), 
-                name: params.get('name'), 
-                location: params.get('location'), 
-                price: parseFloat(params.get('price')), 
-                min: parseInt(params.get('min')), 
-                category: params.get('category'), 
-                description: params.get('description'), 
-                button: params.get('button'), 
-                job: params.get('job'), 
-                image: params.get('image'), 
+                id:params.get('id'),
+                benefits:params.get('benefits'),
+                category:params.get('.category'),
+                description:params.get('description'),
+                image:params.get('image'),
+                location:params.get('.location'),
+                min :params.get('.min'),
+                owner :params.get('owner'),
+                price:params.get('.price'),
+                title:params.get('.titl'),
                 date: selectedDate.toISOString().split('T')[0], 
                 time: selectedTimeButton.getAttribute('data-time'),
                 totalPrice: totalPrice.toFixed(2),

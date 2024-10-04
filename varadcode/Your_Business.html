@@ -4,81 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Business Details Popup</title>
-  <style>
-    
-    .popup-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.5);
-      display: none;
-      justify-content: center;
-      align-items: center;
-    }
-
-    
-    .popup {
-      background-color: white;
-      padding: 30px;
-      width: 400px;
-      border-radius: 10px;
-      text-align: left;
-      position: relative;
-      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-      overflow-y: auto;
-      max-height: 80vh;
-    }
-
-    
-    .close-btn {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      background-color: transparent;
-      border: none;
-      font-size: 24px;
-      cursor: pointer;
-      color: #999;
-    }
-
-    
-    select, input, textarea {
-      width: 100%;
-      padding: 12px;
-      margin: 10px 0;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      font-size: 14px;
-    }
-
-    
-    input[type="url"] {
-      padding: 12px;
-    }
-
-    
-    .submit-btn {
-      background-color: #4CAF50;
-      color: white;
-      border: none;
-      padding: 10px 20px;
-      border-radius: 5px;
-      cursor: pointer;
-      font-size: 16px;
-    }
-
-    
-    .submit-btn:hover {
-      background-color: #45a049;
-    }
-
-    
-    .popup-overlay.show {
-      display: flex;
-    }
-  </style>
+  <link rel="stylesheet" href="Your_Business.css">
 </head>
 <body>
 
@@ -168,46 +94,63 @@
 
     
     document.getElementById('businessForm').addEventListener('submit', function(event) {
-      event.preventDefault(); 
+    event.preventDefault(); 
 
-      const formData = new FormData(this);
+    const formData = new FormData(this);
 
-      
-      const category = formData.get('category');
-      const location = formData.get('location');
-      const benefit1 = formData.get('benefit1');
-      const benefit2 = formData.get('benefit2') || 'N/A';
-      const photo = formData.get('photo');
-      const title = formData.get('title');
-      const description = formData.get('description');
-      const price = formData.get('price');
-      const min = formData.get('min');
+    // Extract values from the form
+    const category = formData.get('category');
+    const location = formData.get('location');
+    const benefit1 = formData.get('benefit1');
+    const benefit2 = formData.get('benefit2') || 'N/A';
+    const photo = formData.get('photo');
+    const title = formData.get('title');
+    const description = formData.get('description');
+    const price = formData.get('price');
+    const min = formData.get('min');
 
-      
-      const owner = "Owner Max Drive";  
-      const button = `${category.toLowerCase().replace(/\s+/g, '-')}`;
-      const job = title;
+    const owner = "Owner Max Drive";  // Example owner name
 
-      
-      const businessData = {
-        title,
-        owner,
-        name: category,  
-        location,
-        price: Number(price),
-        min: Number(min),  
-        category: `By ${owner}`,  
-        description,
-        button,
-        job,
-        image: photo
-      };
+    // Prepare the data object
+    const newRecord = {
+        category: category,
+        location: location,
+        benefits: [benefit1, benefit2],  // Store benefits as an array
+        image: photo,
+        title: title,
+        description: description,
+        price: price,
+        min: min,
+        owner: owner
+    };
 
-      console.log(businessData); 
+    // Firebase API URL
+    const API = "https://cw-project-block-39-default-rtdb.firebaseio.com/servicesData.json";
 
-      alert('Business details submitted successfully!');
-      document.getElementById('popupOverlay').classList.remove('show');
+    // Send a POST request to Firebase
+    fetch(API, {
+        method: 'POST',  // Use POST to create a new record
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(newRecord)
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log('Record created successfully:', data);
+        document.getElementById('businessForm').reset();
+
+        setTimeout(() => {
+            window.location.href = 'index.html';
+        }, 500); // 1 second delay before redirecting
+    })
+    .catch(error => {
+        console.error('Error creating record:', error);
+        // Handle errors here
     });
+});
+
+  
   </script>
 
 </body>
