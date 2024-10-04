@@ -108,11 +108,12 @@
     const description = formData.get('description');
     const price = formData.get('price');
     const min = formData.get('min');
-
+    const id = Math.floor(Math.random() * 100);  // Generates a random integer between 0 and 999999
     const owner = "Owner Max Drive";  // Example owner name
 
     // Prepare the data object
     const newRecord = {
+        id:id,
         category: category,
         location: location,
         benefits: [benefit1, benefit2],  // Store benefits as an array

@@ -61,11 +61,10 @@ function createCard(data) {
 
         card.appendChild(cardImage);
         card.appendChild(cardContent);
-        console.log(item.benefits)
         const data = {
             id: item.id,
-            benefits:item.benefits,
             category: item.category,
+            benefits:item.benefits,
             description:item.description,
             image:item.image,
             location: item.location,
