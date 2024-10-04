@@ -19,48 +19,41 @@ function createCard(data) {
     const cardContainer = document.getElementById('card-container');
     cardContainer.innerHTML = ''; 
 
-    if (data.length === 0) {
-        cardContainer.innerHTML = "<p>No results found.</p>";
-        return;
-    }
-
     data.forEach(item => {
-        const { id, title = "No Title", name = "No Category", location = "No Location", price = "N/A" } = item;
-    
         const card = document.createElement('div');
         card.classList.add('card');
-        card.setAttribute('data-id', id || 'Unknown');
-    
+        card.setAttribute('data-id', item.id);
+
         const cardImage = document.createElement('div');
         cardImage.classList.add('card-image');
         const img = document.createElement('img');
-        img.src = "https://bookablebiz.vercel.app/_next/image?url=https%3A%2F%2Fres.cloudinary.com%2Fdxjdvjoef%2Fimage%2Fupload%2Fv1718210276%2Fkojrrww3nzuqpsi52wzl.avif&w=1920&q=75";
-        img.alt = title;
-    
+        img.src = `${item.image}`;
+        img.alt = item.title;
+
         const heartIcon = document.createElement('span');
         heartIcon.classList.add('heart-icon');
         heartIcon.innerHTML = '<i class="fa-solid fa-heart" style="color: white;"></i>';
-    
+
         cardImage.appendChild(img);
         cardImage.appendChild(heartIcon);
-    
+
         const cardContent = document.createElement('div');
         cardContent.classList.add('card-content');
-    
-        const titleElem = document.createElement('h3');
-        titleElem.textContent = title;
-    
-        const categoryElem = document.createElement('p');
-        categoryElem.classList.add('category');
-        categoryElem.textContent = name;
-    
-        const locationElem = document.createElement('p');
-        locationElem.classList.add('location');
-        locationElem.innerHTML = `<i class="fa-solid fa-location-dot" style="color: black;font-size: 15px;"></i> ${location}`;
-    
-        const priceElem = document.createElement('p');
-        priceElem.classList.add('price');
-        priceElem.textContent = `$${price}`;
+
+        const title = document.createElement('h3');
+        title.textContent = item.category;
+
+        const category = document.createElement('p');
+        category.classList.add('category');
+        category.textContent = item.title;
+
+        const location = document.createElement('p');
+        location.classList.add('location');
+        location.innerHTML = `<i class="fa-solid fa-location-dot" style="color: black;font-size: 15px;"></i> ${item.location}`;
+
+        const price = document.createElement('p');
+        price.classList.add('price');
+        price.textContent = `$${item.price}`;
 
         
         const editButton = document.createElement('button');
@@ -75,11 +68,10 @@ function createCard(data) {
 
         deleteButton.addEventListener('click', () => deleteBooking(item.key));
 
-        
-        cardContent.appendChild(titleElem);
-        cardContent.appendChild(categoryElem);
-        cardContent.appendChild(locationElem);
-        cardContent.appendChild(priceElem);
+        cardContent.appendChild(title);
+        cardContent.appendChild(category);
+        cardContent.appendChild(location);
+        cardContent.appendChild(price);
         cardContent.appendChild(editButton); 
         cardContent.appendChild(deleteButton); 
     

@@ -6,10 +6,10 @@ async function fetchData() {
     try {
         const response = await fetch(API);
         const data = await response.json();
-        originalData = data;
-        createCard(data); 
+        originalData = data ? Object.entries(data).map(([key, value]) => ({ ...value, key })) : [];
+        createCard(originalData); 
     } catch (error) {
-        console.error("Error fetching data:", error);
+        console.log("Error fetching data:", error);
     }
 }
 
@@ -26,7 +26,7 @@ function createCard(data) {
         const cardImage = document.createElement('div');
         cardImage.classList.add('card-image');
         const img = document.createElement('img');
-        img.src = "https://bookablebiz.vercel.app/_next/image?url=https%3A%2F%2Fres.cloudinary.com%2Fdxjdvjoef%2Fimage%2Fupload%2Fv1718210276%2Fkojrrww3nzuqpsi52wzl.avif&w=1920&q=75";
+        img.src = `${item.image}`;
         img.alt = item.title;
 
         const heartIcon = document.createElement('span');
@@ -40,11 +40,11 @@ function createCard(data) {
         cardContent.classList.add('card-content');
 
         const title = document.createElement('h3');
-        title.textContent = item.title;
+        title.textContent = item.category;
 
         const category = document.createElement('p');
         category.classList.add('category');
-        category.textContent = item.name;
+        category.textContent = item.title;
 
         const location = document.createElement('p');
         location.classList.add('location');
@@ -61,12 +61,29 @@ function createCard(data) {
 
         card.appendChild(cardImage);
         card.appendChild(cardContent);
-
-        card.addEventListener('click', function () {
-            const queryString = `?id=${encodeURIComponent(item.id)}&title=${encodeURIComponent(item.title)}&name=${encodeURIComponent(item.name)}&owner=${encodeURIComponent(item.owner)}&location=${encodeURIComponent(item.location)}&price=${encodeURIComponent(item.price)}&min=${encodeURIComponent(item.min)}&category=${encodeURIComponent(item.category)}&description=${encodeURIComponent(item.description)}&button=${encodeURIComponent(item.button)}&job=${encodeURIComponent(item.job)}&image=${encodeURIComponent(item.image)}`;
-            window.location.href = `Ex.html${queryString}`;
-        });
+        console.log(item.benefits)
+        const data = {
+            id: item.id,
+            benefits:item.benefits,
+            category: item.category,
+            description:item.description,
+            image:item.image,
+            location: item.location,
+            min : item.min,
+            owner :item.owner,
+            price: item.price,
+            title: item.title
+            
+        };
         
+        // Construct the query string
+        const queryString = new URLSearchParams(data).toString();
+        
+        // Add event listener to the card
+        card.addEventListener('click', function () {
+            window.location.href = `Ex.html?${queryString}`;
+        });
+
 
         cardContainer.appendChild(card);
     });
