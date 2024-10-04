@@ -20,7 +20,7 @@
             <p class="category"></p>
             <p class="location"><i class="fa-solid fa-location-dot"></i></p>
             <p class="description"></p>
-            <button>Book Now</button>
+            <button class="bn">Book Now</button>
         </div>
         <div class="right-section1">
             <img src="" alt="">
@@ -84,42 +84,57 @@
         </div>
 
         <div class="timeslots">
-            <button>10:00</button>
-            <button>10:30</button>
-            <button>11:00</button>
-            <button>11:30</button>
-            <button>12:00</button>
-            <button>12:30</button>
-            <button>13:00</button>
-            <button>13:30</button>
-            <button>14:00</button>
-            <button>14:30</button>
-            <button>15:00</button>
-            <button>15:30</button>
-            <button>16:00</button>
-            <button>16:30</button>
-            <button>17:00</button>
+            <button data-time="10:00">10:00</button>
+            <button data-time="10:30">10:30</button>
+            <button data-time="11:00">11:00</button>
+            <button data-time="11:30">11:30</button>
+            <button data-time="12:00">12:00</button>
+            <button data-time="12:30">12:30</button>
+            <button data-time="13:00">13:00</button>
+            <button data-time="13:30">13:30</button>
+            <button data-time="14:00">14:00</button>
+            <button data-time="14:30">14:30</button>
+            <button data-time="15:00">15:00</button>
+            <button data-time="15:30">15:30</button>
+            <button data-time="16:00">16:00</button>
+            <button data-time="16:30">16:30</button>
+            <button data-time="17:00">17:00</button>
         </div>
         
-<hr>
+        <hr>
         <div class="summary">
             <div class="su">
                 <p>Tax (2%)</p>
-                <p>$0.66</p>
+                <p></p>
             </div>
             <div class="su">
                 <h4>Total</h4>
                 <h5 class="total"></h5>
 
             </div>
-            
-            
         </div>
 
-        <div class="reserve-btn">
-            Reserve
-        </div>
+        <div class="reserve-btn">Reserve</div>
     </div>
+    <!-- Small Popup for Payment Information -->
+<div id="paymentPopup" class="payment-popup">
+    <div class="popup-content">
+      <span class="close-popup">&times;</span>
+      <h4>Payment Information</h4>
+      <label for="cardNumber">Card Number:</label>
+      <input type="text" id="cardNumber" placeholder="1234 5678 9123 4567" required><br><br>
+  
+      <label for="expiryDate">Expiry Date:</label>
+      <input type="text" id="expiryDate" placeholder="MM/YY" required><br><br>
+  
+      <label for="cvv">CVV:</label>
+      <input type="text" id="cvv" placeholder="123" required>
+      <br><br>
+  
+      <button class="submit-payment-btn">Submit Payment</button>
+    </div>
+  </div>
+  
 </div>
 
 </body>

@@ -118,6 +118,10 @@ function searchByJob(query) {
     createCard(filteredData);
 }
 
+
+
+
+
 document.addEventListener('DOMContentLoaded', function() {
     
     const searchInput = document.getElementById('search-location');
@@ -149,6 +153,7 @@ document.addEventListener('DOMContentLoaded', function() {
             dropdown.classList.toggle('show');
         });
     }
+    
     
     fetchData();
 });
