@@ -72,7 +72,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     updateCalendar();
 
-    const params = new URLSearchParams(window.location.search);
+    const params = new URLSearchParams(window.location.search); 
+
     document.querySelector('.left-section1 h1').textContent = params.get('title');
     document.querySelector('.left-section1 p:nth-child(2)').textContent = `By ${params.get('owner')}`;
     document.querySelector('.left-section1 p:nth-child(3)').textContent = `~ ${params.get('min')} minutes`;
@@ -118,8 +119,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const reserveButton = document.querySelector('.reserve-btn');
     const paymentPopup = document.getElementById('paymentPopup');
     const closePopupButton = document.querySelector('.close-popup');
+    const userEmail = localStorage.getItem('userEmail');
 
-    reserveButton.addEventListener('click', () => {
+    reserveButton.addEventListener('click', () => {    
+        if (!userEmail) {
+            // Redirect to login page if the user is not logged in
+            window.location.href = '../aniketcode/signin.html'; // Redirect to your login page
+            return;
+        }
+    
         if (selectedTimeButton) {
             paymentPopup.style.display = 'flex';
         } else {
@@ -141,36 +149,43 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const submitPaymentButton = document.querySelector('.submit-payment-btn');
 
-
-    
     submitPaymentButton.addEventListener('click', async () => {
+        // Check if the user is logged in by checking if their email is stored
+        const userEmail = localStorage.getItem('userEmail');
+    
+        if (!userEmail) {
+            // Redirect to login page if the user is not logged in
+            window.location.href = '../aniketcode/signin.html'; // Redirect to your login page
+            return;
+        }
+    
         const cardNumber = document.getElementById('cardNumber').value;
         const expiryDate = document.getElementById('expiryDate').value;
         const cvv = document.getElementById('cvv').value;
-
         
         if (cardNumber && expiryDate && cvv) {
-            
-            const bookingDetails = {
-                id:params.get('id'),
-                benefits:params.get('benefits'),
-                category:params.get('.category'),
-                description:params.get('description'),
-                image:params.get('image'),
-                location:params.get('.location'),
-                min :params.get('.min'),
-                owner :params.get('owner'),
-                price:params.get('.price'),
-                title:params.get('.titl'),
-                date: selectedDate.toISOString().split('T')[0], 
+
+
+                const bookingDetails = {
+                id: params.get('id'),
+                benefits: params.get('benefits'),
+                category: params.get('category'),
+                description: params.get('description'),
+                image: params.get('image'),
+                location: params.get('location'),
+                min: params.get('min'),
+                owner: userEmail,  // Store the logged-in user's email as the 'owner'
+                price: params.get('price'),
+                title: params.get('title'),
+                date: selectedDate.toISOString().split('T')[0],
                 time: selectedTimeButton.getAttribute('data-time'),
                 totalPrice: totalPrice.toFixed(2),
                 cardNumber,
                 expiryDate,
-                cvv
+                cvv,
+                userEmail  // Send the logged-in user's email as part of the booking details
             };
-
-            
+    
             try {
                 const response = await fetch("https://cw-project-block-39-default-rtdb.firebaseio.com/confomebookin.json", {
                     method: 'POST',
@@ -179,15 +194,15 @@ document.addEventListener('DOMContentLoaded', () => {
                     },
                     body: JSON.stringify(bookingDetails)
                 });
-
+    
                 if (response.ok) {
                     alert('Payment successful! Your booking is confirmed.');
                     paymentPopup.style.display = 'none';
                     document.getElementById('cardNumber').value = '';
                     document.getElementById('expiryDate').value = '';
                     document.getElementById('cvv').value = '';
-                    selectedTimeButton.style.backgroundColor = ''; 
-                    window.location.href = "booking.html"
+                    selectedTimeButton.style.backgroundColor = '';
+                    window.location.href = "booking.html";
                 } else {
                     alert('Error saving booking. Please try again.');
                 }
@@ -199,5 +214,7 @@ document.addEventListener('DOMContentLoaded', () => {
             alert('Please fill in all payment details.');
         }
     });
+    
+
 
 });

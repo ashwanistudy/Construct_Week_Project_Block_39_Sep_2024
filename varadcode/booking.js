@@ -19,6 +19,11 @@ function createCard(data) {
     const cardContainer = document.getElementById('card-container');
     cardContainer.innerHTML = ''; 
 
+    if (data.length === 0) {
+        cardContainer.innerHTML = "<p>No results found.</p>";
+        return;
+    }
+
     data.forEach(item => {
         const card = document.createElement('div');
         card.classList.add('card');
