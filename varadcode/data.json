@@ -1,0 +1,149 @@
+{
+    "servicesData" : [
+    {
+        "id": 1,
+        "title": "Repair Service",
+        "owner": "Owner meddy roncejero",
+        "name": "Appliances Repair",
+        "location": "Japan, Asia",
+        "price": 30,
+        "min": 870,
+        "category": "By meddy roncejero",
+        "description": "Get your appliances repaired!",
+        "button": "appliances / repair",
+        "job": "Repair Service",
+        "image": "https://bookablebiz.vercel.app/_next/image?url=https%3A%2F%2Fres.cloudinary.com%2Fdxjdvjoef%2Fimage%2Fupload%2Fv1723671132%2Fgugmoyhabmnkrdhrbd3i.webp&w=1920&q=75"
+    },
+    {
+        "id": 2,
+        "title": "Cleaning Service",
+        "owner": "Owner Anna White",
+        "name": "Home Cleaning",
+        "location": "New York, USA",
+        "price": 50,
+        "min": 540,
+        "category": "By Anna White",
+        "description": "Professional home cleaning services.",
+        "button": "home / cleaning",
+        "job": "Cleaning Service",
+        "image": "https://bookablebiz.vercel.app/_next/image?url=https%3A%2F%2Fres.cloudinary.com%2Fdxjdvjoef%2Fimage%2Fupload%2Fv1723671132%2Fgugmoyhabmnkrdhrbd3i.webp&w=1920&q=75"
+    },
+    {
+        "id": 3,
+        "title": "Plumbing Service",
+        "owner": "Owner John Smith",
+        "name": "Plumbing Fix",
+        "location": "Berlin, Germany",
+        "price": 45,
+        "min": 720,
+        "category": "By John Smith",
+        "description": "Reliable plumbing services for your home.",
+        "button": "plumbing / fix",
+        "job": "Plumbing Service",
+        "image": "https://bookablebiz.vercel.app/_next/image?url=https%3A%2F%2Fres.cloudinary.com%2Fdxjdvjoef%2Fimage%2Fupload%2Fv1723671132%2Fgugmoyhabmnkrdhrbd3i.webp&w=1920&q=75"
+    },
+    {
+        "id": 4,
+        "title": "Electrical Service",
+        "owner": "Owner Sarah Lee",
+        "name": "Electrical Repairs",
+        "location": "London, UK",
+        "price": 60,
+        "min": 650,
+        "category": "By Sarah Lee",
+        "description": "Expert electrical services for all your needs.",
+        "button": "electrical / repairs",
+        "job": "Electrical Service",
+        "image": "https://bookablebiz.vercel.app/_next/image?url=https%3A%2F%2Fres.cloudinary.com%2Fdxjdvjoef%2Fimage%2Fupload%2Fv1723671132%2Fgugmoyhabmnkrdhrbd3i.webp&w=1920&q=75"
+    },
+    {
+        "id": 5,
+        "title": "Gardening Service",
+        "owner": "Owner Emily Green",
+        "name": "Garden Maintenance",
+        "location": "Sydney, Australia",
+        "price": 35,
+        "min": 800,
+        "category": "By Emily Green",
+        "description": "Keep your garden beautiful with our service.",
+        "button": "gardening / maintenance",
+        "job": "Gardening Service",
+        "image": "https://bookablebiz.vercel.app/_next/image?url=https%3A%2F%2Fres.cloudinary.com%2Fdxjdvjoef%2Fimage%2Fupload%2Fv1723671132%2Fgugmoyhabmnkrdhrbd3i.webp&w=1920&q=75"
+    },
+    {
+        "id": 6,
+        "title": "Painting Service",
+        "owner": "Owner Mike Blue",
+        "name": "Home Painting",
+        "location": "Toronto, Canada",
+        "price": 55,
+        "min": 900,
+        "category": "By Mike Blue",
+        "description": "Give your home a fresh coat of paint.",
+        "button": "painting / home",
+        "job": "Painting Service",
+        "image": "https://bookablebiz.vercel.app/_next/image?url=https%3A%2F%2Fres.cloudinary.com%2Fdxjdvjoef%2Fimage%2Fupload%2Fv1723671132%2Fgugmoyhabmnkrdhrbd3i.webp&w=1920&q=75"
+    },
+    {
+        "id": 7,
+        "title": "Carpentry Service",
+        "owner": "Owner William Wood",
+        "name": "Custom Carpentry",
+        "location": "Paris, France",
+        "price": 40,
+        "min": 760,
+        "category": "By William Wood",
+        "description": "Custom carpentry services for your home.",
+        "button": "carpentry / custom",
+        "job": "Carpentry Service",
+        "image": "https://bookablebiz.vercel.app/_next/image?url=https%3A%2F%2Fres.cloudinary.com%2Fdxjdvjoef%2Fimage%2Fupload%2Fv1723671132%2Fgugmoyhabmnkrdhrbd3i.webp&w=1920&q=75"
+    },
+    {
+        "id": 8,
+        "title": "Moving Service",
+        "owner": "Owner Olivia Move",
+        "name": "Moving and Relocation",
+        "location": "Los Angeles, USA",
+        "price": 75,
+        "min": 1200,
+        "category": "By Olivia Move",
+        "description": "Fast and reliable moving services.",
+        "button": "moving / relocation",
+        "job": "Moving Service",
+        "image": "https://bookablebiz.vercel.app/_next/image?url=https%3A%2F%2Fres.cloudinary.com%2Fdxjdvjoef%2Fimage%2Fupload%2Fv1723671132%2Fgugmoyhabmnkrdhrbd3i.webp&w=1920&q=75"
+    },
+    {
+        "id": 9,
+        "title": "Auto Repair Service",
+        "owner": "Owner Max Drive",
+        "name": "Auto Repair",
+        "location": "Mumbai, India",
+        "price": 65,
+        "min": 950,
+        "category": "By Max Drive",
+        "description": "Fix your car with our expert service.",
+        "button": "auto / repair",
+        "job": "Auto Repair Service",
+        "image": "https://bookablebiz.vercel.app/_next/image?url=https%3A%2F%2Fres.cloudinary.com%2Fdxjdvjoef%2Fimage%2Fupload%2Fv1723671132%2Fgugmoyhabmnkrdhrbd3i.webp&w=1920&q=75"
+    },
+    {
+        "id": 10,
+        "title": "Pet Grooming Service",
+        "owner": "Owner Laura Paw",
+        "name": "Pet Grooming",
+        "location": "Bangkok, Thailand",
+        "price": 25,
+        "min": 600,
+        "category": "By Laura Paw",
+        "description": "Professional grooming for your pets.",
+        "button": "pet / grooming",
+        "job": "Pet Grooming Service",
+        "image": "https://bookablebiz.vercel.app/_next/image?url=https%3A%2F%2Fres.cloudinary.com%2Fdxjdvjoef%2Fimage%2Fupload%2Fv1723671132%2Fgugmoyhabmnkrdhrbd3i.webp&w=1920&q=75"
+    }
+    ],
+    "confomebookin":[
+        {
+            
+        }
+    ]
+}
