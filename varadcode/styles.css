@@ -8,7 +8,7 @@
 body {
     font-family: 'Poppins', sans-serif;
     background-color: #f4f4f9;
-    height: 2000px; /* Ensure there's enough content to scroll */
+    height: aut; /* Ensure there's enough content to scroll */
 }
 
 .h1 {        
@@ -196,27 +196,232 @@ body {
     margin: 0 auto;
 }
 
+/* Main menu styling */
 .menu {
     list-style: none;
     display: flex;
     justify-content: space-around;
     align-items: center;
-    padding: 0;
+    padding: 10px 0;
+    background-color: transparent; /* Remove background color */
+    box-shadow: none; /* Remove shadow */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
+/* Menu item hover effects */
+.menu li {
+    margin: 0 20px;
+    position: relative;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.menu li:hover {
+    color: #FF007F; /* Pink accent color on hover */
+    transform: scale(1.1); /* Slight scaling effect */
+}
+
+/* Animated underline effect */
+.menu li::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 3px;
+    background: #FF007F; /* Pink underline on hover */
+    bottom: -5px;
+    left: 50%;
+    transition: width 0.3s ease, left 0.3s ease;
+}
+
+.menu li:hover::after {
+    width: 100%;
+    left: 0;
+}
+
+/* Cool dropdown animation effect */
 .menu select {
-    background-color: #a1bcc0;
-    padding: 8px;
+    background-color: transparent; /* Remove background for dropdown */
+    color: #333; /* Default dark text color */
+    padding: 10px;
     border-radius: 5px;
     font-size: 16px;
-    color: white;
-    border: none;
+    border: 1px solid #ccc; /* Add a subtle border */
     cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    position: relative;
+    appearance: none;
 }
 
 .menu select:hover {
-    background-color: #9ed7df;
+    background-color: #FF007F; /* Pink background on hover */
+    color: #fff;
+    transform: scale(1.05); /* Slight scale effect on hover */
 }
+
+.menu select::after {
+    content: '\25BC';
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #333;
+    transition: transform 0.3s ease, color 0.3s ease;
+    pointer-events: none;
+}
+
+.menu select:hover::after {
+    transform: rotate(180deg);
+    color: #fff;
+}
+
+/* Dropdown menu open effect */
+.menu select:focus {
+    outline: none;
+    background-color: #4c0bac;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    animation: dropdownOpen 0.3s ease-out forwards;
+}
+
+/* Animating dropdown opening */
+@keyframes dropdownOpen {
+    0% {
+        transform: scaleY(0.9);
+        opacity: 0;
+    }
+    100% {
+        transform: scaleY(1);
+        opacity: 1;
+    }
+}
+
+/* Fade-in effect for menu items */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.menu li {
+    animation: fadeInUp 0.5s ease both;
+}
+/* Main menu styling */
+.menu {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px 0;
+    background-color: transparent; /* Remove background color */
+    box-shadow: none; /* Remove shadow */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Menu item hover effects */
+.menu li {
+    margin: 0 20px;
+    position: relative;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.menu li:hover {
+    color: #FF007F; /* Pink accent color on hover */
+    transform: scale(1.1); /* Slight scaling effect */
+}
+
+/* Animated underline effect */
+.menu li::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 3px;
+    background: #FF007F; /* Pink underline on hover */
+    bottom: -5px;
+    left: 50%;
+    transition: width 0.3s ease, left 0.3s ease;
+}
+
+.menu li:hover::after {
+    width: 100%;
+    left: 0;
+}
+
+/* Cool dropdown animation effect */
+.menu select {
+    background-color: transparent; /* Remove background for dropdown */
+    color: #333; /* Default dark text color */
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 16px;
+    border: 1px solid #ccc; /* Add a subtle border */
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    position: relative;
+    appearance: none;
+}
+
+.menu select:hover {
+    background-color: #a60756; /* Pink background on hover */
+    color: #fff;
+    transform: scale(1.05); /* Slight scale effect on hover */
+}
+
+.menu select::after {
+    content: '\25BC';
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #333;
+    transition: transform 0.3s ease, color 0.3s ease;
+    pointer-events: none;
+}
+
+.menu select:hover::after {
+    transform: rotate(180deg);
+    color: #fff;
+}
+
+/* Dropdown menu open effect */
+.menu select:focus {
+    outline: none;
+    background-color: #FF007F;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    animation: dropdownOpen 0.3s ease-out forwards;
+}
+
+/* Animating dropdown opening */
+@keyframes dropdownOpen {
+    0% {
+        transform: scaleY(0.9);
+        opacity: 0;
+    }
+    100% {
+        transform: scaleY(1);
+        opacity: 1;
+    }
+}
+
+/* Fade-in effect for menu items */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.menu li {
+    animation: fadeInUp 0.5s ease both;
+}
+
+
 
 
 .card-container {
