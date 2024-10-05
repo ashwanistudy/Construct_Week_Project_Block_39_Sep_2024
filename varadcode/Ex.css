@@ -72,12 +72,14 @@ body {
 }
 
 .calendar-container {
-    background-color: #fff;
+    background-color: #ffffff;
     border-radius: 10px;
     padding: 20px;
     margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+/* Enhanced Calendar Header */
 .calendar-header {
     display: flex;
     justify-content: space-between;
@@ -88,43 +90,71 @@ body {
 #month-year {
     font-size: 20px;
     font-weight: bold;
+    color: #4d4f53;
 }
 
+/* Navigation buttons for calendar */
 .nav-btn {
     background-color: #4d4f53;
     color: #fff;
     border: none;
-    padding: 10px;
-    border-radius: 40%;
+    padding: 10px 15px;
+    border-radius: 5px;
     cursor: pointer;
     outline: none;
+    transition: background-color 0.3s ease, transform 0.3s;
 }
 
 .nav-btn:hover {
     background-color: #0056b3;
+    transform: scale(1.1);
 }
 
+/* Calendar Table */
 .calendar-table {
     width: 100%;
     border-collapse: collapse;
     text-align: center;
 }
 
-.calendar-table th, .calendar-table td {
-    padding: 10px;
+.calendar-table th,
+.calendar-table td {
+    padding: 10px; /* Adjusted padding for visibility */
     border: 1px solid #ddd;
     cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s;
 }
 
+.calendar-table th {
+    background-color: #4d4f53; /* Darker header color */
+    color: white; /* Text color */
+    font-weight: bold;
+    border-bottom: 2px solid #333;
+}
+
+/* .calendar-table td {
+    background-color: #fff;
+} */
+
+/* Ensure rightmost numbers are visible */
+.calendar-table td:last-child {
+    padding-right: 5px; /* Adjust padding for rightmost cell */
+}
+
+/* Calendar cell hover and selected styles */
 .calendar-table td:hover {
-    background-color: #f0f0f0;
+    background-color: #e0f7fa; /* Light cyan for hover effect */
+    transform: translateY(-3px); /* Lift effect on hover */
 }
 
+/* Selected Date Style */
 .selected-date {
-    background-color: #4d4f53;
-    color: #fff;
+    background-color: #2c3e50; /* Darker background for selected date */
+    color: #ffffff; /* White text for selected date */
+    animation: pulse 1s infinite; /* Pulse effect for selected date */
 }
 
+/* Time Slots */
 .timeslots {
     display: flex;
     flex-wrap: wrap;
@@ -140,18 +170,21 @@ body {
     border-radius: 5px;
     cursor: pointer;
     font-size: 14px;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.3s;
 }
 
 .timeslots button:hover {
     background-color: #82e0b6;
+    transform: scale(1.05);
 }
 
-.su {
-    display: flex;
-    justify-content: space-between;
+/* Style for Selected Slot */
+.timeslots .selected {
+    background-color: #007bff; /* Dark blue for selected time slot */
+    color: white; /* White text for selected slot */
 }
 
+/* Reserve Button */
 .reserve-btn {
     background-color: #333;
     color: white;
@@ -160,10 +193,12 @@ body {
     border-radius: 5px;
     cursor: pointer;
     margin-top: 20px;
+    transition: background-color 0.3s ease, transform 0.3s;
 }
 
 .reserve-btn:hover {
     background-color: #555;
+    transform: scale(1.05);
 }
 
 /* Responsive Layout */
@@ -172,7 +207,8 @@ body {
         flex-direction: column;
     }
 
-    .left-section, .right-section {
+    .left-section,
+    .right-section {
         width: 100%;
     }
 
@@ -220,6 +256,7 @@ body {
 .left-section1 {
     margin-top: 20px;
 }
+
 .left-section1 button {
     background-color: #fff;
     color: #000;
@@ -257,10 +294,11 @@ body {
     .container1 {
         flex-direction: column;
     }
-    .left-section1{
+    .left-section1 {
         text-align: center;
     }
-    .left-section1, .right-section1 {
+    .left-section1,
+    .right-section1 {
         width: 100%;
     }
 }
@@ -287,12 +325,11 @@ body {
     .left-section1 p {
         font-size: 0.9rem;
     }
-    .container, .container1 {
+    .container,
+    .container1 {
         padding: 10px;
-        
     }
 }
-
 
 /* Popup styles */
 .payment-popup {
@@ -306,29 +343,100 @@ body {
     background-color: rgba(0, 0, 0, 0.5); /* Black with opacity */
     justify-content: center; /* Center horizontally */
     align-items: center; /* Center vertically */
-  }
+}
   
-  /* Popup Content */
-  .popup-content {
-    background-color: white;
-    padding: 20px;
-    border-radius: 8px;
+/* Popup styles */
+.payment-popup {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1000; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Dark overlay with opacity */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+}
+
+/* Popup Content */
+.popup-content {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
     width: 300px; /* Set a width for the popup */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  }
-  
-  /* Close button */
-  .close-popup {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    animation: slideIn 0.5s ease; /* Slide-in animation */
+}
+
+/* Close button */
+.close-popup {
     color: red;
     float: right;
     font-size: 28px;
-    font-weight: bold;
     cursor: pointer;
-  }
-  
-  .submit-payment-btn{
-    background-color: #82e0b6;
+    transition: color 0.3s ease; /* Transition for color change */
+}
+
+.close-popup:hover {
+    color: darkred; /* Darker red on hover */
+}
+
+/* Popup Title */
+h4 {
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center; /* Center the title */
+}
+
+/* Input Styles */
+label {
+    font-weight: bold;
+    color: #555;
+    display: block; /* Make label block level for spacing */
+    margin-bottom: 5px;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px; /* Space below each input */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: border-color 0.3s ease; /* Transition for border color */
+}
+
+input[type="text"]:focus {
+    border-color: #007bff; /* Change border color on focus */
+    outline: none; /* Remove outline */
+}
+
+/* Submit Button */
+.submit-payment-btn {
+    background-color: #007bff; /* Blue background */
+    color: white;
+    padding: 10px;
     border: none;
     border-radius: 5px;
-    padding: 8px;
-  }
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s ease, transform 0.3s; /* Transition for button */
+}
+
+.submit-payment-btn:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+    transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+/* Keyframes for slide-in animation */
+@keyframes slideIn {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
