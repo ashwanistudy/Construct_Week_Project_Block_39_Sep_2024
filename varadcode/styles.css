@@ -7,8 +7,9 @@
 
 body {
     font-family: 'Poppins', sans-serif;
-    background-color: #f4f4f9;
+    background: linear-gradient(180deg,white, white,rgba(0, 0, 104, 0.521), white, white);
     height: aut; /* Ensure there's enough content to scroll */
+    
 }
 
 .h1 {        
@@ -187,7 +188,7 @@ body {
 
 
 .header {
-    background-color: #7b9a9e;
+    background-color: #0900728a;
     padding: 10px;
 }
 
@@ -216,7 +217,7 @@ body {
 }
 
 .menu li:hover {
-    color: #FF007F; /* Pink accent color on hover */
+    color: #8a0536cc; /* Pink accent color on hover */
     transform: scale(1.1); /* Slight scaling effect */
 }
 
@@ -226,7 +227,7 @@ body {
     position: absolute;
     width: 0;
     height: 3px;
-    background: #FF007F; /* Pink underline on hover */
+    background: #8a0536cc; /* Pink underline on hover */
     bottom: -5px;
     left: 50%;
     transition: width 0.3s ease, left 0.3s ease;
@@ -252,7 +253,7 @@ body {
 }
 
 .menu select:hover {
-    background-color: #FF007F; /* Pink background on hover */
+    background-color: #8a0536cc; /* Pink background on hover */
     color: #fff;
     transform: scale(1.05); /* Slight scale effect on hover */
 }
@@ -328,7 +329,7 @@ body {
 }
 
 .menu li:hover {
-    color: #FF007F; /* Pink accent color on hover */
+    color: #8a0536cc; /* Pink accent color on hover */
     transform: scale(1.1); /* Slight scaling effect */
 }
 
@@ -338,7 +339,7 @@ body {
     position: absolute;
     width: 0;
     height: 3px;
-    background: #FF007F; /* Pink underline on hover */
+    background: #8a0536cc; /* Pink underline on hover */
     bottom: -5px;
     left: 50%;
     transition: width 0.3s ease, left 0.3s ease;
@@ -361,10 +362,11 @@ body {
     transition: background-color 0.3s ease, transform 0.3s ease;
     position: relative;
     appearance: none;
+    color: white;
 }
 
 .menu select:hover {
-    background-color: #a60756; /* Pink background on hover */
+    background-color: #8a0536cc; /* Pink background on hover */
     color: #fff;
     transform: scale(1.05); /* Slight scale effect on hover */
 }
@@ -388,9 +390,10 @@ body {
 /* Dropdown menu open effect */
 .menu select:focus {
     outline: none;
-    background-color: #FF007F;
+    background-color: #9c0740;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     animation: dropdownOpen 0.3s ease-out forwards;
+    color: white;
 }
 
 /* Animating dropdown opening */
@@ -421,9 +424,6 @@ body {
     animation: fadeInUp 0.5s ease both;
 }
 
-
-
-
 .card-container {
     display: flex;
     justify-content: space-around;
@@ -440,6 +440,12 @@ body {
     width: 100%; 
     max-width: 300px;
     margin: 10px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    cursor: pointer;
+}
+.card:hover{
+    transition: transform 0.3s ease;
+    transform: scale(1.03);
 }
 
 .card-image {
