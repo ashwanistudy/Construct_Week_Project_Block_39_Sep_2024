@@ -79,7 +79,16 @@
   </div>
 
   <script>
-    document.addEventListener("DOMContentLoaded", openPopup);
+    document.addEventListener("DOMContentLoaded", function() {
+      const loggedInUser = localStorage.getItem('userEmail');
+      if (!loggedInUser) {
+        // If not logged in, redirect to sign-in page
+        window.location.href = "../aniketcode/signin.html";
+      }
+      
+      openPopup(); // Call the function to open the popup if the user is logged in
+    });
+
 
     
     function openPopup() {
@@ -109,7 +118,8 @@
     const price = formData.get('price');
     const min = formData.get('min');
     const id = Math.floor(Math.random() * 100);  // Generates a random integer between 0 and 999999
-    const owner = "Owner Max Drive";  // Example owner name
+    const owner = localStorage.getItem('userEmail');  // Get the logged-in user's email
+
 
     // Prepare the data object
     const newRecord = {
@@ -122,7 +132,7 @@
         description: description,
         price: price,
         min: min,
-        owner: owner
+        owner: owner  // Set the owner's email (logged-in user)
     };
 
     // Firebase API URL
