@@ -80,7 +80,7 @@ function createCard(data) {
         
         // Add event listener to the card
         card.addEventListener('click', function () {
-            window.location.href = `Ex.html?${queryString}`;
+            window.location.href = `./varadcode/Ex.html?${queryString}`;
         });
 
 

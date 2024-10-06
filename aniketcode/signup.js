@@ -69,7 +69,7 @@ function log_in(event) {
           localStorage.setItem('userEmail', email);
           
           document.getElementById("log_in").reset();
-          window.location.href = "../varadcode/index.html";
+          window.location.href = "../index.html";
         } else {
           alert('LogIn failed');
         }
