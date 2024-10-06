@@ -19,7 +19,7 @@ console.log(10)
     };
     async function fun() {
       await fetch(
-        "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyDXkAJVc-DkYxQQnylXQowj2804hX3In60",
+        "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyBnGTRkVjUP00cNVKnKUEKuybly4lUSf_g",
         request
       )
         .then((res) => res.json())
@@ -59,7 +59,7 @@ function log_in(event) {
 
   async function fun() {
     await fetch(
-      "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyDXkAJVc-DkYxQQnylXQowj2804hX3In60",
+      "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyBnGTRkVjUP00cNVKnKUEKuybly4lUSf_g",
       request
     )
       .then((res) => res.json())
