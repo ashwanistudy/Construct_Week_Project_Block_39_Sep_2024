@@ -1,6 +1,8 @@
 Project Name--> Scheduling App
 Project Code--> Code for Climat_008
 
+Deployed link--> https://tiny-malabi-b500fd.netlify.app/
+
 ## Context:
 Scheduling meetings and appointments can be a tedious task, often involving numerous back-and-forth emails to find a mutually convenient time. This project aims to develop a web-based scheduling application that allows users to set their availability, share booking links, and manage appointments seamlessly.
 
