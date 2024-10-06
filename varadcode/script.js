@@ -129,7 +129,7 @@ function filterCardsByLocation(query) {
 
 
 function searchByJob(query) {
-    const filteredData = originalData.filter(item => item.job && item.job.toLowerCase().includes(query.toLowerCase()));
+    const filteredData = originalData.filter(item => item.category.toLowerCase().includes(query.toLowerCase()));
     // console.log(filteredData);
     createCard(filteredData);
 }

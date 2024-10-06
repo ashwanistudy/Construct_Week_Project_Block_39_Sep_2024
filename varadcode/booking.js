@@ -1,16 +1,42 @@
 const API = "https://cw-project-block-39-default-rtdb.firebaseio.com/confomebookin";
 
+// async function fetchData() {
+//     try {
+//         const response = await fetch(`${API}.json`);
+//         if (!response.ok) {
+//             throw new Error('Network response was not ok');
+//         }
+//         const data = await response.json();
+//         originalData = data ? Object.entries(data).map(([key, value]) => ({ ...value, key })) : [];
+//         createCard(originalData); 
+//     } catch (error) {
+//         console.log("Error fetching data:", error);
+//     }
+// }
+
 async function fetchData() {
     try {
+        const userEmail = localStorage.getItem('userEmail');
+        if (!userEmail) {
+            alert('Please log in first.');
+            window.location.href = '../aniketcode/signin.html'; // Redirect to login page
+            return;
+        }
+
         const response = await fetch(`${API}.json`);
         if (!response.ok) {
             throw new Error('Network response was not ok');
         }
+
         const data = await response.json();
-        originalData = data ? Object.entries(data).map(([key, value]) => ({ ...value, key })) : [];
-        createCard(originalData); 
+        // Filter data based on the logged-in user's email
+        originalData = data ? Object.entries(data)
+            .filter(([key, value]) => value.userEmail === userEmail)
+            .map(([key, value]) => ({ ...value, key })) : [];
+
+        createCard(originalData); // Display the filtered user data
     } catch (error) {
-        console.log("Error fetching data:", error);
+        console.error("Error fetching data:", error);
     }
 }
 
@@ -20,7 +46,7 @@ function createCard(data) {
     cardContainer.innerHTML = ''; 
 
     if (data.length === 0) {
-        cardContainer.innerHTML = "<p>No results found.</p>";
+        cardContainer.innerHTML = "<p>No bookings found for your account.</p>"; // No bookings message
         return;
     }
 
@@ -32,7 +58,7 @@ function createCard(data) {
         const cardImage = document.createElement('div');
         cardImage.classList.add('card-image');
         const img = document.createElement('img');
-        img.src = `${item.image}`;
+        img.src = item.image;
         img.alt = item.title;
 
         const heartIcon = document.createElement('span');
@@ -60,17 +86,16 @@ function createCard(data) {
         price.classList.add('price');
         price.textContent = `$${item.price}`;
 
-        
+        // Edit Button
         const editButton = document.createElement('button');
         editButton.classList.add('edit-btn');
         editButton.textContent = 'Edit Booking';
-        editButton.addEventListener('click', () => editBooking(id));
+        editButton.addEventListener('click', () => editBooking(item.key)); // Use item.key instead of id
 
-        
+        // Delete Button
         const deleteButton = document.createElement('button');
         deleteButton.classList.add('delete-btn');
         deleteButton.textContent = 'Delete Booking';
-
         deleteButton.addEventListener('click', () => deleteBooking(item.key));
 
         cardContent.appendChild(title);
@@ -79,10 +104,9 @@ function createCard(data) {
         cardContent.appendChild(price);
         cardContent.appendChild(editButton); 
         cardContent.appendChild(deleteButton); 
-    
+
         card.appendChild(cardImage);
         card.appendChild(cardContent);
-    
         cardContainer.appendChild(card);
     });
 }
