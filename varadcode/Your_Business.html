@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Business Details Popup</title>
+  <link rel="stylesheet" href="Your_Business.css">
+</head>
+<body>
+
+  
+  <div class="popup-overlay" id="popupOverlay">
+    <div class="popup">
+      <button class="close-btn" onclick="closePopup()">×</button>
+      <h3>Business Details</h3>
+
+      
+      <form id="businessForm">
+        
+        <label for="category">Pick a category:</label>
+        <select id="category" name="category" required>
+          <option value="">--Select a Category--</option>
+          <option value="Baking Classes">Baking Classes</option>
+          <option value="Cleaning Service">Cleaning Service</option>
+          <option value="Club Membership">Club Membership</option>
+          <option value="Coaching Classes">Coaching Classes</option>
+          <option value="Dental Surgery">Dental Surgery</option>
+          <option value="Dentists">Dentists</option>
+          <option value="Gardening">Gardening</option>
+          <option value="General Classes">General Classes</option>
+          <option value="GPs">GPs</option>
+          <option value="Gym Membership">Gym Membership</option>
+          <option value="Hair Salon">Hair Salon</option>
+          <option value="Handyman Service">Handyman Service</option>
+          <option value="House Painting">House Painting</option>
+          <option value="Massage Service">Massage Service</option>
+          <option value="Medical Specialist">Medical Specialist</option>
+          <option value="Movers">Movers</option>
+          <option value="Music Classes">Music Classes</option>
+          <option value="Nail Salon">Nail Salon</option>
+          <option value="Personal Trainers">Personal Trainers</option>
+          <option value="Pet Grooming">Pet Grooming</option>
+          <option value="Pet Sitting">Pet Sitting</option>
+          <option value="Professional Therapy">Professional Therapy</option>
+          <option value="Repair Service">Repair Service</option>
+          <option value="Spa">Spa</option>
+          <option value="Tuition">Tuition</option>
+          <option value="Tutoring Coaching">Tutoring Coaching</option>
+          <option value="Zumba">Zumba</option>
+        </select>
+
+        
+        <label for="location">Where is your business located?</label>
+        <input type="text" id="location" name="location" placeholder="Enter your business location" required>
+
+        
+        <label for="features">What features do you provide?</label>
+        <input type="text" id="benefit1" name="benefit1" placeholder="Benefit 1" required>
+        <input type="text" id="benefit2" name="benefit2" placeholder="Benefit 2">
+
+        
+        <label for="photo">Add a photo of your business (Image URL):</label>
+        <input type="url" id="photo" name="photo" placeholder="Enter image URL" required>
+
+        
+        <label for="description">How would you describe your business?</label>
+        <input type="text" id="title" name="title" placeholder="Title" required>
+        <textarea id="description" name="description" placeholder="Short and sweet works best!" rows="4" required></textarea>
+
+        
+        <label for="priceTime">Set price and time</label>
+        <input type="number" id="price" name="price" placeholder="Price" required>
+        <input type="number" id="min" name="min" placeholder="Time (in minutes)" required>
+
+        
+        <button type="submit" class="submit-btn">Submit</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", openPopup);
+
+    
+    function openPopup() {
+      document.getElementById('popupOverlay').classList.add('show');
+    }
+
+    
+    function closePopup() {
+      document.getElementById('popupOverlay').classList.remove('show');
+      window.location.href = "index.html"
+    }
+
+    
+    document.getElementById('businessForm').addEventListener('submit', function(event) {
+    event.preventDefault(); 
+
+    const formData = new FormData(this);
+
+    // Extract values from the form
+    const category = formData.get('category');
+    const location = formData.get('location');
+    const benefit1 = formData.get('benefit1');
+    const benefit2 = formData.get('benefit2') || 'N/A';
+    const photo = formData.get('photo');
+    const title = formData.get('title');
+    const description = formData.get('description');
+    const price = formData.get('price');
+    const min = formData.get('min');
+    const id = Math.floor(Math.random() * 100);  // Generates a random integer between 0 and 999999
+    const owner = "Owner Max Drive";  // Example owner name
+
+    // Prepare the data object
+    const newRecord = {
+        id:id,
+        category: category,
+        location: location,
+        benefits: [benefit1, benefit2],  // Store benefits as an array
+        image: photo,
+        title: title,
+        description: description,
+        price: price,
+        min: min,
+        owner: owner
+    };
+
+    // Firebase API URL
+    const API = "https://cw-project-block-39-default-rtdb.firebaseio.com/servicesData.json";
+
+    // Send a POST request to Firebase
+    fetch(API, {
+        method: 'POST',  // Use POST to create a new record
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(newRecord)
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log('Record created successfully:', data);
+        document.getElementById('businessForm').reset();
+
+        setTimeout(() => {
+            window.location.href = 'index.html';
+        }, 500); // 1 second delay before redirecting
+    })
+    .catch(error => {
+        console.error('Error creating record:', error);
+        // Handle errors here
+    });
+});
+
+  
+  </script>
+
+</body>
+</html>

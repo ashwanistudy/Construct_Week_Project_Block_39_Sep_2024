@@ -1,0 +1,165 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #1e1e2e;
+    color: #f0f0f0;
+    padding: 20px;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    color: #5dade2;
+    animation: fadeInDown 1s ease-in-out;
+}
+
+header p {
+    font-size: 1.2rem;
+    margin-top: 10px;
+    color: #a3a3c2;
+}
+
+/* Contact Form Styles */
+.contact-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background: linear-gradient(145deg, #2c2c3b, #23232f);
+    border-radius: 10px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+    animation: slideInUp 1s ease forwards;
+}
+
+.contact-form {
+    width: 100%;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    animation: fadeIn 0.5s ease forwards; /* Fade in effect for form groups */
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #5dade2;
+    font-weight: bold;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #555;
+    border-radius: 5px;
+    background-color: #3a3a4c;
+    color: #f0f0f0;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    animation: bounceIn 0.5s ease forwards; /* Bounce in effect for inputs */
+}
+
+input:focus, textarea:focus {
+    border-color: #5dade2;
+    outline: none;
+    box-shadow: 0 0 5px rgba(93, 174, 226, 0.7);
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #5dade2;
+    color: white;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+button:hover {
+    background-color: #48c9b0;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(72, 201, 176, 0.5);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    margin-top: 40px;
+    padding: 10px;
+    background-color: #2c2c3b;
+    color: white;
+    font-size: 0.9rem;
+}
+
+/* Animations */
+@keyframes fadeInDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes bounceIn {
+    0% {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2rem;
+    }
+
+    header p {
+        font-size: 1rem;
+    }
+}
