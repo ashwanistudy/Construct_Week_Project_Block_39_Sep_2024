@@ -1,6 +1,45 @@
 Project Name--> Scheduling App
 Project Code--> Code for Climat_008
 
+## Context:
+Scheduling meetings and appointments can be a tedious task, often involving numerous back-and-forth emails to find a mutually convenient time. This project aims to develop a web-based scheduling application that allows users to set their availability, share booking links, and manage appointments seamlessly.
+
+## Project Goal:
+This web application enabling users to set their availability, share booking links, and manage appointments. The application should include features for scheduling, sending notifications, and integrating with calendars. Provide a user-friendly interface to ensure a smooth scheduling experience.
+
+## Features:
+1. **User Authentication**:
+    - Allow users to sign up, log in, and log out.
+    - 
+2. **Availability Settings**:
+    - Users can set their availability for different days and times.
+    - Allow users to create multiple types of events with different durations (e.g., 15-minute meeting, 30-minute consultation).
+      
+3. **Booking Link**:
+    - Generate a unique booking link for each user that they can share with others.
+      
+4. **Appointment Booking**:
+    - Allow others to view the user’s availability and book appointments.
+    - Prevent double bookings by ensuring times are blocked out once an appointment is booked.
+      
+6. **Appointment Management**:
+    - Users can view, edit, and cancel their appointments.
+      
+7. **Calendar Integration**:
+    - Integrate with popular calendar services (e.g., Google Calendar, Outlook) to automatically update availability and booked appointments.
+      
+8. **Buffer Time and Padding**:
+    - Allow users to set buffer times before and after appointments to prevent back-to-back bookings.
+      
+9. **Timezone Support**:
+    - Automatically handle timezones for both the user and the person booking the appointment.
+       
+12. **Group Events**:
+    - Allow users to create group events where multiple participants can join the same appointment.
+      
+13. **Payment Integration**:
+    - Integrate with payment gateways to allow users to charge for appointments.
+
 
 ![Screenshot (182)](https://github.com/user-attachments/assets/bdaea2f3-fdff-43d2-9a2a-7e7b00749a27)
 
