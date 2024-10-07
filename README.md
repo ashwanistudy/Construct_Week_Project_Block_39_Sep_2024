@@ -45,7 +45,7 @@ This web application enabling users to set their availability, share booking lin
 
 ![Screenshot (182)](https://github.com/user-attachments/assets/bdaea2f3-fdff-43d2-9a2a-7e7b00749a27)
 
-![Screenshot (172)](https://github.com/user-attachments/assets/fde4323c-3008-4777-b9f3-255aedb81243)
+
 
 
 ![Screenshot (174)](https://github.com/user-attachments/assets/d63abb35-97fe-43f8-9c2b-12926fcadc09)
@@ -58,3 +58,4 @@ This web application enabling users to set their availability, share booking lin
 ![Screenshot (176)](https://github.com/user-attachments/assets/e24b766c-8cbd-432f-bb06-e68e7aa5bd29)
 ![Screenshot (175)](https://github.com/user-attachments/assets/beec0ad6-42ff-43be-81c6-c8790ad9cb48)
 
+![Screenshot (172)](https://github.com/user-attachments/assets/fde4323c-3008-4777-b9f3-255aedb81243)
